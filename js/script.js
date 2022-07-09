@@ -4,9 +4,7 @@ let result = document.getElementById('result')
 let clickResult = ""
 
 for (item of btns) {
-
-
-    item.addEventListener('click', (e) => {
+        item.addEventListener('click', (e) => {
         btnText = e.target.innerText;
 
         if (btnText == 'X') {
@@ -24,9 +22,6 @@ for (item of btns) {
             clickResult += btnText
             result.value = clickResult
         }
-
-
         console.log(btnText)
     })
 }
-
