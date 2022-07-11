@@ -1,27 +1,64 @@
-let btns = document.querySelectorAll('.btn')
-let result = document.getElementById('result')
+const data = [
+    {name : "amar singh", age : 25},
+    {name : "Ajay singh", age : 27}
+];
 
-let clickResult = ""
 
-for (item of btns) {
-        item.addEventListener('click', (e) => {
-        btnText = e.target.innerText;
+function getData() {
 
-        if (btnText == 'X') {
-            btnText = '*'
-            clickResult += btnText
-            result.value = clickResult
+setTimeout(() => {
+    let output = ""
+    data.forEach((datas, index) => {
+        
+        output+= `<li> ${datas.name} </li>`
+    
+    });
+    
+    document.body.innerHTML=output
+}, 1000);
+    
+}
 
-        } else if (btnText == 'C') {
-            clickResult = ""
-            result.value = clickResult
 
-        } else if (btnText == '=') {
-            result.value = eval(clickResult)
-        } else {
-            clickResult += btnText
-            result.value = clickResult
-        }
-        console.log(btnText)
+getData();
+
+// Promise
+
+function createData(Newdata) {
+    new Promise((resolve, reject) => {
+    setTimeout(() => {
+
+        
+            let err = false
+
+            if(!err) {
+                resolve()
+            } else {
+                    reject("Bhai kuch to gadbad hai")
+                }
+            
+        })
+
+
+data.push(Newdata)
+
     })
 }
+
+createData({name : "sunny"})
+
+
+
+
+// Call Back
+
+
+// function createData(Newdata, callback) {
+//     setTimeout(() => {
+
+// data.push(Newdata)
+// callback();
+//     }, 2000)
+// }
+
+// createData({name : "sunny"},  getData)
